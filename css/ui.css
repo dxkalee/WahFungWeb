@@ -1616,11 +1616,11 @@ a.contactus {
   }
   .wf-bento-0 {
     grid-column: 1 / -1;
-    min-height: 148px;
-    height: 148px;
+    min-height: 188px;
+    height: 188px;
   }
   .wf-bento-0 img {
-    object-position: center 32%;
+    object-position: center 28%;
   }
   .wf-bento-1,
   .wf-bento-2 {
@@ -1664,11 +1664,11 @@ a.contactus {
   }
   .wf-bento-0 {
     grid-column: 1 / -1;
-    min-height: 136px;
-    height: 136px;
+    min-height: 176px;
+    height: 176px;
   }
   .wf-bento-0 img {
-    object-position: center 32%;
+    object-position: center 28%;
   }
   .wf-bento-1,
   .wf-bento-2 {
@@ -2092,11 +2092,11 @@ a.contactus {
   }
   .wf-bento-0 {
     grid-column: 1 / -1;
-    min-height: 128px;
-    height: 128px;
+    min-height: 168px;
+    height: 168px;
   }
   .wf-bento-0 img {
-    object-position: center 32%;
+    object-position: center 28%;
   }
   .wf-bento-1,
   .wf-bento-2 {
