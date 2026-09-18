@@ -8,15 +8,47 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-COMPANY = {
-    "en": "Wah Fung Engineering Company Limited",
-    "tc": "華丰工程有限公司",
-    "sc": "华丰工程有限公司",
-}
+SITES = [
+    {
+        "slug": "engineering",
+        "en": "Wah Fung Engineering Company Limited",
+        "tc": "華丰工程有限公司",
+        "sc": "华丰工程有限公司",
+        "desc": {
+            "en": "Wah Fung Engineering Company Limited — civil and building engineering in Hong Kong.",
+            "tc": "華丰工程有限公司 — 香港土木及建築工程承建商。",
+            "sc": "华丰工程有限公司 — 香港土木及建筑工程承建商。",
+        },
+    },
+    {
+        "slug": "building",
+        "en": "Wah Fung Building & Engineering Limited",
+        "tc": "華丰建設工程有限公司",
+        "sc": "华丰建设工程有限公司",
+        "desc": {
+            "en": "Wah Fung Building & Engineering Limited — civil and building engineering in Hong Kong.",
+            "tc": "華丰建設工程有限公司 — 香港土木及建築工程承建商。",
+            "sc": "华丰建设工程有限公司 — 香港土木及建筑工程承建商。",
+        },
+    },
+    {
+        "slug": "dixie",
+        "en": "Dixie Engineering Company Limited",
+        "tc": "仁利工程有限公司",
+        "sc": "仁利工程有限公司",
+        "desc": {
+            "en": "Dixie Engineering Company Limited — civil and building engineering in Hong Kong.",
+            "tc": "仁利工程有限公司 — 香港土木及建築工程承建商。",
+            "sc": "仁利工程有限公司 — 香港土木及建筑工程承建商。",
+        },
+    },
+]
+CURRENT_SITE = SITES[0]
+COMPANY = {lang: CURRENT_SITE[lang] for lang in ("en", "tc", "sc")}
 COPYRIGHT = {
-    "en": "© 2026 Wah Fung Engineering Company Limited. All Rights Reserved.",
-    "tc": "© 2026 華丰工程有限公司。版權所有。",
-    "sc": "© 2026 华丰工程有限公司。版权所有。",
+    "en": f"© 2026 {CURRENT_SITE['en']}. All Rights Reserved.",
+    "tc": f"© 2026 {CURRENT_SITE['tc']}。版權所有。",
+    "sc": f"© 2026 {CURRENT_SITE['sc']}。版权所有。",
 }
 CONTACT_LABEL = {"en": "Contact us", "tc": "聯繫我們", "sc": "联系我们"}
 NAV = {
@@ -883,12 +915,18 @@ HTML_LANG = {"en": "en", "tc": "zh-Hant", "sc": "zh-Hans"}
 
 
 def head(title: str, lang: str = "en") -> str:
+    desc = CURRENT_SITE["desc"][lang]
     return f"""<!DOCTYPE html>
 <html lang="{HTML_LANG[lang]}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
+<meta name="description" content="{desc}">
+<meta name="author" content="{title}">
+<meta property="og:title" content="{title}">
+<meta property="og:site_name" content="{title}">
+<meta property="og:description" content="{desc}">
 <style>
 html{{font-size:16px}}
 body{{margin:0;font-size:14px;line-height:1.5;color:#243044}}
@@ -1017,11 +1055,20 @@ def inner_page(image: str, title: str, body: str) -> str:
 """
 
 
+def with_assets(html: str) -> str:
+    for folder in ("images", "vendor", "css", "js"):
+        html = html.replace(f"../{folder}/", f"../../{folder}/")
+    return html
+
+
 def write_page(lang: str, filename: str, body: str) -> None:
-    html = head(COMPANY[lang], lang) + header(lang, filename) + body + footer(lang)
+    html = head(CURRENT_SITE[lang], lang) + header(lang, filename) + body + footer(lang)
     html = html.replace(".php", ".html")
+    html = with_assets(html)
     stem = filename[:-4] if filename.endswith(".php") else Path(filename).stem
-    (ROOT / lang / f"{stem}.html").write_text(html, encoding="utf-8")
+    out = ROOT / CURRENT_SITE["slug"] / lang
+    out.mkdir(parents=True, exist_ok=True)
+    (out / f"{stem}.html").write_text(html, encoding="utf-8")
 
 
 def page_home(lang: str) -> str:
@@ -1868,10 +1915,22 @@ def clean_old(lang_dir: Path) -> None:
         print("removed", p)
 
 
-def main() -> None:
+def set_site(site: dict) -> None:
+    global CURRENT_SITE, COMPANY, COPYRIGHT
+    CURRENT_SITE = site
+    COMPANY = {lang: site[lang] for lang in ("en", "tc", "sc")}
+    COPYRIGHT = {
+        "en": f"© 2026 {site['en']}. All Rights Reserved.",
+        "tc": f"© 2026 {site['tc']}。版權所有。",
+        "sc": f"© 2026 {site['sc']}。版权所有。",
+    }
+
+
+def build_site(site: dict) -> None:
+    set_site(site)
     for lang in ("en", "tc", "sc"):
-        d = ROOT / lang
-        d.mkdir(exist_ok=True)
+        d = ROOT / site["slug"] / lang
+        d.mkdir(parents=True, exist_ok=True)
         write_page(lang, "index.php", page_home(lang))
         write_page(lang, "aboutus.php", page_about(lang))
         write_page(lang, "expertise.php", page_expertise(lang))
@@ -1886,13 +1945,42 @@ def main() -> None:
         for n in NEWS:
             write_page(lang, f'news_detail_id-{n["id"]}.php', page_news_detail(lang, n))
         clean_old(d)
-        print("built", lang)
-
-    root_index = """<!DOCTYPE html><html><head><meta charset="utf-8">
+        print("built", site["slug"], lang)
+    (ROOT / site["slug"] / "index.html").write_text(
+        f"""<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta http-equiv="refresh" content="0; url=en/index.html">
-<title>Wah Fung Engineering Company Limited</title></head>
-<body><p><a href="en/index.html">English</a> · <a href="tc/index.html">繁</a> · <a href="sc/index.html">简</a></p></body></html>"""
-    (ROOT / "index.html").write_text(root_index, encoding="utf-8")
+<title>{site["en"]}</title>
+<meta name="description" content="{site["desc"]["en"]}">
+</head>
+<body><p><a href="en/index.html">English</a> · <a href="tc/index.html">繁</a> · <a href="sc/index.html">简</a></p></body></html>""",
+        encoding="utf-8",
+    )
+
+
+def main() -> None:
+    for site in SITES:
+        build_site(site)
+    for old in ("en", "tc", "sc"):
+        d = ROOT / old
+        if d.is_dir():
+            shutil.rmtree(d)
+    (ROOT / "index.html").write_text(
+        """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wah Fung Engineering Company Limited · Wah Fung Building &amp; Engineering Limited · Dixie Engineering Company Limited</title>
+</head>
+<body>
+<p><a href="engineering/en/index.html">Wah Fung Engineering Company Limited</a></p>
+<p><a href="building/en/index.html">Wah Fung Building &amp; Engineering Limited</a></p>
+<p><a href="dixie/en/index.html">Dixie Engineering Company Limited</a></p>
+</body>
+</html>
+""",
+        encoding="utf-8",
+    )
     print("done")
 
 
