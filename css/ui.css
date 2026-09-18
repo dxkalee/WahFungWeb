@@ -1843,10 +1843,16 @@ a.contactus {
     grid-column: 1 / -1;
     min-height: 188px;
     height: 188px;
+    overflow: hidden;
   }
 
   .wf-bento-0 img {
-    object-position: center 28%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 36%;
   }
 
   .wf-bento-1,
@@ -1900,10 +1906,16 @@ a.contactus {
     grid-column: 1 / -1;
     min-height: 176px;
     height: 176px;
+    overflow: hidden;
   }
 
   .wf-bento-0 img {
-    object-position: center 28%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 36%;
   }
 
   .wf-bento-1,
@@ -2405,10 +2417,16 @@ a.contactus {
     grid-column: 1 / -1;
     min-height: 168px;
     height: 168px;
+    overflow: hidden;
   }
 
   .wf-bento-0 img {
-    object-position: center 28%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 36%;
   }
 
   .wf-bento-1,
