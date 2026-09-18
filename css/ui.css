@@ -1913,13 +1913,16 @@ a.contactus {
   }
 
   .wf-bento-5 {
-    min-height: 120px;
+    min-height: 0;
     height: auto;
   }
 
   .wf-bento-5 img {
-    height: 120px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
   .wf-hero-tabs li {
