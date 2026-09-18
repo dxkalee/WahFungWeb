@@ -936,7 +936,7 @@ body{{margin:0;font-size:14px;line-height:1.5;color:#243044}}
 <link href="../images/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" href="../vendor/maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="../vendor/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/ui.css?v=n22" rel="stylesheet">
+<link href="../css/ui.css?v=n21" rel="stylesheet">
 <style>
 .news_list .news{{display:flex !important;align-items:center;gap:16px;padding:16px;overflow:visible !important;position:relative}}
 .news_list .news_thumb{{flex:0 0 128px !important;position:static !important;left:auto !important;top:auto !important;width:128px !important;height:86px !important;overflow:hidden;margin:0}}
@@ -978,14 +978,13 @@ def header(lang: str, page: str) -> str:
             activated.add(href)
         nav.append(f'<li{active}><a href="{href}">{label}</a></li>')
     brands = []
-    for i, c in enumerate(GROUP_COMPANIES):
+    for c in GROUP_COMPANIES:
         d = c[lang]
-        slug = SITES[i]["slug"]
-        href = f"../../{slug}/{lang}/{fname}"
-        on = " is-site" if slug == CURRENT_SITE["slug"] else ""
+        href = c.get("linkedin") or "aboutus.php"
+        extra = ' target="_blank" rel="noopener"' if c.get("linkedin") else ""
         label = d.get("short_en") or d["short"]
         brands.append(
-            f'<a class="wf-brand{on}" href="{href}">'
+            f'<a class="wf-brand" href="{href}"{extra}>'
             f'<img src="{c["logo"]}" alt="{label}">'
             f"<span>{label}</span></a>"
         )
@@ -1971,40 +1970,12 @@ def main() -> None:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wah Fung Engineering Company Limited</title>
-<link rel="icon" href="images/favicon.ico">
-<link href="css/ui.css?v=n22" rel="stylesheet">
-<style>
-html{font-size:16px}
-body{margin:0}
-.container{max-width:1140px;margin:0 auto;padding:0 15px}
-.wf-pick{max-width:980px;margin:48px auto;padding:0 20px}
-.wf-pick h1{font-family:"Barlow","Source Sans 3",sans-serif;font-size:28px;color:#142048;margin:0 0 24px}
-.wf-pick-tabs{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
-.wf-pick-tabs a{display:block;flex:1 1 240px;background:#1c357a;color:#fff;text-align:center;padding:22px 16px;text-decoration:none;font-family:"Barlow","Source Sans 3",sans-serif;font-weight:700;letter-spacing:.04em}
-.wf-pick-tabs a:hover{background:#c4a14a;color:#fff}
-</style>
+<title>Wah Fung Engineering Company Limited · Wah Fung Building &amp; Engineering Limited · Dixie Engineering Company Limited</title>
 </head>
 <body>
-<nav id="header" class="navbar navbar-main">
-  <div class="container">
-    <div class="wf-bar">
-      <div class="wf-brands" id="brand">
-        <a class="wf-brand" href="engineering/en/index.html"><img src="images/company/1.png" alt="WAH FUNG"><span>WAH FUNG</span></a>
-        <a class="wf-brand" href="building/en/index.html"><img src="images/company/2.png" alt="WAH FUNG BUILDING"><span>WAH FUNG BUILDING</span></a>
-        <a class="wf-brand" href="dixie/en/index.html"><img src="images/company/3.png" alt="DIXIE"><span>DIXIE</span></a>
-      </div>
-    </div>
-  </div>
-</nav>
-<div class="wf-pick">
-  <h1>Select a company</h1>
-  <div class="wf-pick-tabs">
-    <a href="engineering/en/index.html">Wah Fung Engineering Company Limited</a>
-    <a href="building/en/index.html">Wah Fung Building &amp; Engineering Limited</a>
-    <a href="dixie/en/index.html">Dixie Engineering Company Limited</a>
-  </div>
-</div>
+<p><a href="engineering/en/index.html">Wah Fung Engineering Company Limited</a></p>
+<p><a href="building/en/index.html">Wah Fung Building &amp; Engineering Limited</a></p>
+<p><a href="dixie/en/index.html">Dixie Engineering Company Limited</a></p>
 </body>
 </html>
 """,
