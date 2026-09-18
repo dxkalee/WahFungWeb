@@ -1,0 +1,51 @@
+改圖：覆蓋同一個檔名即可。
+
+images\logo.png                 左上角
+
+images\background\1.jpg         首頁大圖 1
+images\background\2.jpg         首頁大圖 2
+images\background\3.jpg         首頁大圖 3
+images\background\4.jpg         首頁大圖 4
+
+images\tile\1.jpg               首頁格 關於我們
+images\tile\2.jpg               專業資格
+images\tile\3.jpg               項目
+images\tile\4.jpg               可持續發展
+images\tile\5.jpg               新聞
+images\tile\6.jpg               聯絡我們
+
+images\banner\1.jpg             內頁頂圖 關於我們
+images\banner\2.jpg             專業資格
+images\banner\3.jpg             項目
+images\banner\4.jpg             可持續發展
+images\banner\5.jpg             新聞
+images\banner\6.jpg             聯絡我們
+
+images\company\1.png            公司 1 華丰工程（LinkedIn logo）
+images\company\2.png            公司 2 華丰建設工程
+images\company\3.png            公司 3 仁利工程 Dixie
+
+certs\iso-9001-2015.pdf         ISO 9001 證書（仁利，至 2027-07-28）
+certs\iso-14001-2015.pdf        ISO 14001 證書
+certs\iso-45001-2018.pdf        ISO 45001 證書
+images\certs\iso-9001.png       ACI ISO 9001 認證標誌
+images\certs\iso-14001.png      ACI ISO 14001 認證標誌
+images\certs\iso-45001.png      ACI ISO 45001 認證標誌
+
+images\project\<合約編號>\
+  10-HY-1997.jpg                 該合約封面（檔名 = 合約編號，/ 改成 -）
+  10-HY-1997-1.jpg               相冊加圖（可 2、3…）
+  11-HY-2000.jpg
+  08-HY-2001.jpg
+  16-HY-2003.jpg
+  05-HY-2006.jpg
+  11-HY-2007.jpg
+  06-HY-2011.jpg
+  02-HY-2015.jpg
+  01-HY-2016.jpg
+  18-HY-2020.jpg
+  DC-2023-04.jpg
+  03-HY-2023.jpg
+  Major-Events.jpg               大型盛事封面
+  Major-Events-1.jpg … -7.jpg    大型盛事相冊
+各檔只出現一次，唔好複製同一張相。覆蓋同名檔即可換圖。

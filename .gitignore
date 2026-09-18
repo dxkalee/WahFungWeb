@@ -1,0 +1,7 @@
+__pycache__/
+_screens/
+_whatsapp_images/
+models/
+*.pyc
+.DS_Store
+Thumbs.db
