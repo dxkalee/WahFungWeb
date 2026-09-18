@@ -1615,6 +1615,7 @@ a.contactus {
     height: 150px;
   }
   .wf-bento-0 {
+    grid-column: 1 / -1;
     min-height: 96px;
     height: 96px;
   }
@@ -1657,6 +1658,7 @@ a.contactus {
     height: 132px;
   }
   .wf-bento-0 {
+    grid-column: 1 / -1;
     min-height: 88px;
     height: 88px;
   }
@@ -2076,6 +2078,7 @@ a.contactus {
     height: 128px;
   }
   .wf-bento-0 {
+    grid-column: 1 / -1;
     min-height: 80px;
     height: 80px;
   }
