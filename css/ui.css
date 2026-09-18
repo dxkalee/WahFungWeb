@@ -1535,20 +1535,6 @@ a.contactus {
   display: block;
   transition: transform 0.4s ease;
 }
-@media (min-width: 992px) {
-  .wf-bento-item img {
-    object-fit: contain;
-    object-position: center;
-  }
-  .wf-page-shot img {
-    object-fit: contain;
-    object-position: center;
-  }
-  .wf-hero .carousel-inner .item > img {
-    object-fit: contain;
-    object-position: center;
-  }
-}
 .wf-bento-item:hover img {
   transform: scale(1.05);
 }
