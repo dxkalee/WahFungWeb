@@ -1865,15 +1865,19 @@ a.contactus {
     min-height: 150px;
   }
 
-  .wf-bento-5 {
+  a.wf-bento-item.wf-bento-5 {
     grid-column: 1 / -1;
     min-height: 0;
     height: auto;
   }
 
-  .wf-bento-5 img {
+  a.wf-bento-item.wf-bento-5 img {
+    position: static;
+    width: 100%;
     height: auto;
     object-fit: contain;
+    object-position: center;
+    display: block;
   }
 }
 
@@ -1924,12 +1928,13 @@ a.contactus {
     height: 92px;
   }
 
-  .wf-bento-5 {
+  a.wf-bento-item.wf-bento-5 {
     min-height: 0;
     height: auto;
   }
 
-  .wf-bento-5 img {
+  a.wf-bento-item.wf-bento-5 img {
+    position: static;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -2435,8 +2440,17 @@ a.contactus {
     height: 88px;
   }
 
-  .wf-bento-5 {
+  a.wf-bento-item.wf-bento-5 {
+    min-height: 0;
     height: auto;
+  }
+
+  a.wf-bento-item.wf-bento-5 img {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .wf-bento-item span {
