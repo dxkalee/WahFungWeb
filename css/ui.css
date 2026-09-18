@@ -2330,16 +2330,27 @@ a.contactus {
     letter-spacing: 0.04em;
   }
 
-  .wf-page-shot,
-  .wf-page-shot-sm {
+  .wf-page-shot {
     height: auto;
   }
 
-  .wf-page-shot img,
-  .wf-page-shot-sm img {
+  .wf-page-shot img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
+  }
+
+  .wf-page-shot-sm {
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .wf-page-shot-sm img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
     display: block;
   }
 
@@ -2619,16 +2630,27 @@ a.contactus {
     font-size: 26px;
   }
 
-  .wf-page-shot,
-  .wf-page-shot-sm {
+  .wf-page-shot {
     height: auto;
   }
 
-  .wf-page-shot img,
-  .wf-page-shot-sm img {
+  .wf-page-shot img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
+  }
+
+  .wf-page-shot-sm {
+    height: 90px;
+    overflow: hidden;
+  }
+
+  .wf-page-shot-sm img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    object-position: center;
     display: block;
   }
 
