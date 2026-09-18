@@ -1622,6 +1622,11 @@ a.contactus {
   .wf-bento-0 img {
     object-position: center 32%;
   }
+  .wf-bento-1,
+  .wf-bento-2 {
+    min-height: 100px;
+    height: 100px;
+  }
   .wf-bento-item {
     min-height: 150px;
   }
@@ -1664,6 +1669,11 @@ a.contactus {
   }
   .wf-bento-0 img {
     object-position: center 32%;
+  }
+  .wf-bento-1,
+  .wf-bento-2 {
+    min-height: 92px;
+    height: 92px;
   }
   .wf-bento-5 {
     min-height: 120px;
@@ -2087,6 +2097,11 @@ a.contactus {
   }
   .wf-bento-0 img {
     object-position: center 32%;
+  }
+  .wf-bento-1,
+  .wf-bento-2 {
+    min-height: 88px;
+    height: 88px;
   }
   .wf-bento-5 {
     height: auto;
