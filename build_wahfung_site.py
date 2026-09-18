@@ -102,9 +102,9 @@ SLIDES = [
     },
     {
         "img": "../images/background/4.jpg",
-        "en": ("Plant and Equipment", "Wah Fung plant and vehicles ready for term-contract operations."),
-        "tc": ("機械及車輛", "華丰工程車輛，支援定期合約作業。"),
-        "sc": ("机械及车辆", "华丰工程车辆，支援定期合约作业。"),
+        "en": ("Plant and Equipment", "Wah Fung works vehicles supporting regular road-closure operations."),
+        "tc": ("機械及車輛", "華丰工程車輛，支援定期封路工程。"),
+        "sc": ("机械及车辆", "华丰工程车辆，支援定期封路工程。"),
     },
 ]
 
