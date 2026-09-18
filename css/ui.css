@@ -2313,12 +2313,17 @@ a.contactus {
     letter-spacing: 0.04em;
   }
 
-  .wf-page-shot {
-    height: 200px;
+  .wf-page-shot,
+  .wf-page-shot-sm {
+    height: auto;
   }
 
-  .wf-page-shot-sm {
-    height: 140px;
+  .wf-page-shot img,
+  .wf-page-shot-sm img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .wf-page-main {
@@ -2582,12 +2587,17 @@ a.contactus {
     font-size: 26px;
   }
 
-  .wf-page-shot {
-    height: 240px;
+  .wf-page-shot,
+  .wf-page-shot-sm {
+    height: auto;
   }
 
-  .wf-page-shot-sm {
-    height: 160px;
+  .wf-page-shot img,
+  .wf-page-shot-sm img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .wf-page-main {
