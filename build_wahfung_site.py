@@ -936,7 +936,7 @@ body{{margin:0;font-size:14px;line-height:1.5;color:#243044}}
 <link href="../images/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" href="../vendor/maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="../vendor/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/ui.css?v=n37" rel="stylesheet">
+<link href="../css/ui.css?v=n38" rel="stylesheet">
 <style>
 .news_list .news{{display:flex !important;align-items:center;gap:16px;padding:16px;overflow:visible !important;position:relative}}
 .news_list .news_thumb{{flex:0 0 128px !important;position:static !important;left:auto !important;top:auto !important;width:128px !important;height:86px !important;overflow:hidden;margin:0}}
