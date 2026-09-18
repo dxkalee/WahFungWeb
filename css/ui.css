@@ -2358,6 +2358,21 @@ a.contactus {
     padding: 20px 0 48px;
   }
 
+  .wf-cert-shot img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .wf-4s .wf-cert-shot img {
+    height: 108px;
+  }
+
+  .wf-4s-icon {
+    min-height: 80px;
+    font-size: 36px;
+  }
+  }
+
   .wf-page-top {
     padding: 16px 0 14px;
   }
@@ -2656,6 +2671,29 @@ a.contactus {
 
   .wf-page-main {
     padding: 24px 0 48px;
+  }
+
+  .wf-cert-shot {
+    padding: 14px 12px 4px;
+  }
+
+  .wf-cert-shot img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .wf-4s .wf-cert-shot img {
+    width: 100%;
+    height: 120px;
+  }
+
+  .wf-4s-icon {
+    min-height: 88px;
+    font-size: 40px;
+  }
+
+  .wf-cert-body {
+    padding: 8px 12px 14px;
   }
 
   .news_cate .cate_list {
