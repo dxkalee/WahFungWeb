@@ -936,7 +936,7 @@ body{{margin:0;font-size:14px;line-height:1.5;color:#243044}}
 <link href="../images/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" href="../vendor/maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="../vendor/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/ui.css?v=n24" rel="stylesheet">
+<link href="../css/ui.css?v=n26" rel="stylesheet">
 <style>
 .news_list .news{{display:flex !important;align-items:center;gap:16px;padding:16px;overflow:visible !important;position:relative}}
 .news_list .news_thumb{{flex:0 0 128px !important;position:static !important;left:auto !important;top:auto !important;width:128px !important;height:86px !important;overflow:hidden;margin:0}}
@@ -1037,7 +1037,8 @@ def footer(lang: str) -> str:
 """
 
 
-def inner_page(image: str, title: str, body: str) -> str:
+def inner_page(image: str, title: str, body: str, compact_shot: bool = False) -> str:
+    shot = "wf-page-shot wf-page-shot-sm" if compact_shot else "wf-page-shot"
     return f"""
 <article class="wf-page">
   <header class="wf-page-top">
@@ -1045,7 +1046,7 @@ def inner_page(image: str, title: str, body: str) -> str:
       <h1 class="wf-page-title">{title}</h1>
     </div>
   </header>
-  <figure class="wf-page-shot"><img src="{image}" alt=""></figure>
+  <figure class="{shot}"><img src="{image}" alt=""></figure>
   <div class="wf-page-main">
     <div class="container">
       {body}
@@ -1570,7 +1571,7 @@ def page_expertise(lang: str) -> str:
       {EXPERTISE_MORE[lang]}
       {iso_certs_html(lang)}
     </div>
-""")
+""", True)
 
 
 def _project_start_year(p: dict) -> int:
@@ -1659,7 +1660,7 @@ def page_sust(lang: str) -> str:
     <div class="about-content">{SUST[lang]}
       {four_s_html(lang)}
     </div>
-""")
+""", True)
 
 
 TALENT = {
