@@ -936,7 +936,7 @@ body{{margin:0;font-size:14px;line-height:1.5;color:#243044}}
 <link href="../images/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" href="../vendor/maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="../vendor/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/ui.css?v=n23" rel="stylesheet">
+<link href="../css/ui.css?v=n24" rel="stylesheet">
 <style>
 .news_list .news{{display:flex !important;align-items:center;gap:16px;padding:16px;overflow:visible !important;position:relative}}
 .news_list .news_thumb{{flex:0 0 128px !important;position:static !important;left:auto !important;top:auto !important;width:128px !important;height:86px !important;overflow:hidden;margin:0}}
@@ -978,18 +978,15 @@ def header(lang: str, page: str) -> str:
             activated.add(href)
         nav.append(f'<li{active}><a href="{href}">{label}</a></li>')
     brands = []
-    for i, c in enumerate(GROUP_COMPANIES):
+    for c in GROUP_COMPANIES:
         d = c[lang]
-        label = d.get("short_en") or d["short"]
-        img = f'<img src="{c["logo"]}" alt="{label}"><span>{label}</span>'
-        slug = SITES[i]["slug"]
-        on = " is-site" if slug == CURRENT_SITE["slug"] else ""
-        tab = f"../../{slug}/{lang}/{fname}"
-        li = c.get("linkedin") or "aboutus.php"
+        href = c.get("linkedin") or "aboutus.php"
         extra = ' target="_blank" rel="noopener"' if c.get("linkedin") else ""
+        label = d.get("short_en") or d["short"]
         brands.append(
-            f'<a class="wf-brand wf-brand-tab{on}" href="{tab}">{img}</a>'
-            f'<a class="wf-brand wf-brand-li" href="{li}"{extra}>{img}</a>'
+            f'<a class="wf-brand" href="{href}"{extra}>'
+            f'<img src="{c["logo"]}" alt="{label}">'
+            f"<span>{label}</span></a>"
         )
     return f"""
 <nav id="header" class="navbar navbar-main">
